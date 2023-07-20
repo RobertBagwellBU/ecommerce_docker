@@ -2,7 +2,7 @@
 Dockerized ecommerce  
 
 ### Installation  
-**Download the ecommerce repo** [https://github.com/Bucked-Up/ecommerce](https://github.com/Bucked-Up/ecommerce) 
+**Download the ecommerce repo** [https://github.com/Bucked-Up/ecommerce](https://github.com/Bucked-Up/ecommerce)  
 **Rename .env_copy to .env**  
 Add your credentials to the appropriate variables.
 ```.env
