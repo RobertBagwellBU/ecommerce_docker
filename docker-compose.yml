@@ -1,0 +1,46 @@
+version: "3"
+services:
+  nginx:
+    build: ./server_configs/
+    container_name: ecommerce-nginx 
+    ports:   
+      - 8080:80
+    volumes_from:
+      - app-data
+    links:
+      - php
+  php:
+    build: ./server_configs/php/
+    container_name: ecommerce
+    expose:
+      - 9000
+    volumes_from:
+      - app-data
+    links:
+      - mysql
+  app-data:
+    image: php:fpm-alpine
+    container_name: app-data-container
+    volumes:
+      - ./:/var/www/html/
+    command: "true"
+  mysql:
+    image: mysql:latest
+    container_name: ecommerce-mysql
+    restart: always
+    volumes_from:
+      - mysql-data
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=ecommerce
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    ports:
+      - 3307:3306
+  mysql-data:
+    image: mysql:latest
+    container_name: mysql-data-container
+    volumes:
+      - /var/lib/mysql
+      - ./install/dev_ecommerce.sql:/docker-entrypoint-initdb.d/dev_ecommerce.sql
+    command: "true"
