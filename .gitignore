@@ -1,2 +1,8 @@
+# ecommerce
+/ecommerce
+
 # dev_ecommerce.sql
 /install/dev_ecommerce.sql
+
+#.env
+.env
