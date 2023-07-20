@@ -12,7 +12,10 @@ MYSQL_USER=your_mysql_username
 MYSQL_PASSWORD=your_mysql_password
 ```  
 **Add 00-init.php file to ./ecommerce/dist/config/ use the credentials added in the .env file**  
-**Add dev_ecommerce.sql file to ./install/** 
+**Add dev_ecommerce.sql file to ./install/**  
+**Download the lastest version of Docker Desktop**
+[https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)  
+Select the platform to install it on. Follow the install instructions.
 
 **Check if docker and docker-compose are installed.**  
 ```bash
@@ -21,16 +24,9 @@ docker --version
 ```bash
 docker-compose --version
 ```
- **If docker is not installed.**  
- Use [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)  
- Select the platform to install it on. Follow the install instructions.  
-  
- **If docker-compose is not installed.**
- Use [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)   
- Select the platform to install it on. Follow the install instructions. 
- 
- **cd into /ecommerce/dist/**
- Install composer dependencies 
+
+**cd into /ecommerce/dist/**
+Install composer dependencies 
 ```bash
 composer install 
 ```
