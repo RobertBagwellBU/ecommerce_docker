@@ -32,7 +32,7 @@ Install composer dependencies
 composer install 
 ```
 
-**cd back to the root directory the directory with the file _docker-compose.yml_ file in it.**  
+**cd into the root directory the directory with the file _docker-compose.yml_ file in it.**  
 ```bash
 docker-compose up -d
 #or 
