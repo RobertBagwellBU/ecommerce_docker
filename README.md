@@ -1,8 +1,18 @@
-# ecommerce
-Dockerized ecommerce  
+# Dockerized ecommerce   
 
 ### Installation  
-**Download the ecommerce repo** [https://github.com/Bucked-Up/ecommerce](https://github.com/Bucked-Up/ecommerce)  
+**Download the latest version of Docker Desktop**
+[https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)  
+Select the platform to install it on. Follow the install instructions.
+
+**(Optional) Check if docker and docker-compose are installed.**  
+```bash
+docker --version
+```
+```bash
+docker-compose --version
+```
+**Clone the ecommerce_docker repo to your "Projects" folder**
 **Rename .env_copy to .env**  
 Add your credentials to the appropriate variables.
 ```.env
@@ -10,29 +20,23 @@ Add your credentials to the appropriate variables.
 MYSQL_ROOT_PASSWORD=your_root_password
 MYSQL_USER=your_mysql_username
 MYSQL_PASSWORD=your_mysql_password
+PATH_TO_PROJECT_DIR=../
 ```  
-**Add 00-init.php file to ./ecommerce/dist/config/ use the credentials added in the .env file**  
+
+**Add 00-init.php file to ./ecommerce/dist/config/ use the credentials added in the .env file**
+**In 00-int.php file chage $_['db_host'] = 'localhost' to $_['db_host'] = 'mysql'**  
 **Add dev_ecommerce.sql file to ./install/**  
-**Download the lastest version of Docker Desktop**
-[https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)  
-Select the platform to install it on. Follow the install instructions.
-
-**Check if docker and docker-compose are installed.**  
-```bash
-docker --version
-```
-```bash
-docker-compose --version
-```
-
-**cd into /ecommerce/dist/**
+**(On initial setup. Skip if already done) cd into /ecommerce/dist/**
 Install composer dependencies 
 ```bash
 composer install 
 ```
+
 **cd back to the root directory the directory with the file _docker-compose.yml_ file in it.**  
 ```bash
 docker-compose up -d
+#or 
+docker compose up -d
 ```
 Allow the database to finish populating.
 You should be all set up now. Use the URL http://localhost:8080
